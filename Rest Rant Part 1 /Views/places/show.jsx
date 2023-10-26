@@ -1,25 +1,26 @@
 const React = require('react')
 const Def = require('../default')
-const methodOverride = require ('method-override')
 
-function show (data) {
+function new_form (data) {
+  let message = ''                 
+    if (data.message) {
+      message = (
+        <h4 className="alert-danger">
+          {data.message}
+        </h4>
+      )
+    }
     return (
         <Def>
           <main>
-            <h1>{ data.place.name }</h1>
-            <a href="" className="btn btn-warning"> 
-  Edit
-</a>  
-<form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
-  <button type="submit" className="btn btn-danger">
-    Delete
-  </button>
-</form> 
+            <h1>Add a New Place</h1>
+            {message}                 
+            ...
           </main>
         </Def>
     )
 }
 
+module.exports = new_form
 
-module.exports = show
 
